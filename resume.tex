@@ -1,0 +1,272 @@
+%-------------------------
+% Resume in Latex
+% Author : Sourabh Bajaj + some brand new features from Mary Feofanova + some changes by Muhammadjon Hakimov
+% Sourabh's: https://github.com/sb2nov/resume
+% Mary's: https://github.com/mary3000/resume
+% Muhammadjon's: https://github.com/mrhakimov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{makecell}
+\usepackage[link=off]{phonenumbers}
+\usepackage{ragged2e}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[utf8x]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{cmap}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\usepackage[margin=0.3in]{geometry}
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.0in}
+\addtolength{\evensidemargin}{-0.0in}
+\addtolength{\textwidth}{0in}
+\addtolength{\topmargin}{10pt}
+\addtolength{\textheight}{0.0in}
+
+\urlstyle{same}
+
+\usepackage{xcolor} % http://ctan.org/pkg/xcolor
+\usepackage{hyperref} % http://ctan.org/pkg/hyperref
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!50!red,
+  linkbordercolor=red,
+  urlcolor=black!70!black,
+  pdfnewwindow=true
+}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-10pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+%-------------------------
+% Custom commands
+\def \ifempty#1{\def\temp{#1} \ifx\temp\empty }
+
+\newcommand{\resumeItem}[2]{
+  \item\small{
+  	\ifempty{#1}#2\else\textbf{#1}{: #2 \vspace{-2pt}}\fi
+  }
+}
+
+\usepackage[dvipsnames]{xcolor}
+\definecolor{mygray}{gray}{0}
+\usepackage{fancybox}
+
+\usepackage{lmodern}
+\usepackage{tikz}
+
+% Style definition
+\tikzset{rndblock/.style={rounded corners,rectangle,draw,outer sep=0pt}}
+
+% Command Definition
+% 1 optional to customize the aspect, 2 mandatory: text to be framed
+\newcommand{\tframed}[2][]{\tikz[baseline=(h.base)]\node[rndblock,#1] (h) {\color{black}{#2}};}
+
+\newcommand*{\mystrut}{\rule[-0.2\baselineskip]{0pt}{0.8\baselineskip}}
+\newcommand{\skill}[1]{\tframed[lightgray]{\mystrut#1}}
+
+
+\newcommand{\resumeSubheading}[4]{
+  \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \vspace{-12pt}\textbf{#3} & \textcolor{mygray}{\textit{\small #2}} \\
+      \textit{\small#1} & \textcolor{mygray}{\textit{\small #4}} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeExpSubheading}[5]{
+  \vspace{3pt}
+  \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \vspace{2pt} \textbf{#1}  & \textcolor{mygray}{\small #2} \\
+      \textit{#3} & \textcolor{mygray}{\textit{\small #4}} \\
+      {\scriptsize#5}
+    \end{tabular*}\vspace{3pt}
+}
+
+\newcommand{\resumeExpJointSubheading}[5]{
+  \vspace{-14pt}
+  \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \vspace{2pt} \textbf{#1}  & \textcolor{mygray}{\small #2} \\
+      \textit{#3} & \textcolor{mygray}{\textit{\small #4}} \\
+      {\scriptsize#5}
+    \end{tabular*}\vspace{3pt}
+}
+
+\newcommand{\resumeProjSubheading}[5]{
+  \vspace{-10pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \vspace{2pt} \textbf{#1}  & \textcolor{mygray}{\small #2} \\
+      \textbf{#3} & \textcolor{mygray}{\textit{\small #4}} \\
+      {\scriptsize#5}
+    \end{tabular*}\vspace{3pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.2in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\usepackage{changepage}
+\newcommand{\resumeDesc}[1]{\begin{adjustwidth}{5pt}{0pt}\vspace{-2pt}{#1}\end{adjustwidth}}
+
+\newcommand{\ExternalLink}{
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{
+        \begin{scope}[x=1ex, y=1ex]
+            \clip (-0.1,-0.1) 
+                --++ (-0, 1.2) 
+                --++ (0.6, 0) 
+                --++ (0, -0.6) 
+                --++ (0.6, 0) 
+                --++ (0, -1);
+            \path[draw, 
+                line width = 0.5, 
+                rounded corners=0.5] 
+                (0,0) rectangle (1,1);
+        \end{scope}
+        \path[draw, line width = 0.5] (0.5, 0.5) 
+            -- (1, 1);
+        \path[draw, line width = 0.5] (0.6, 1) 
+            -- (1, 1) -- (1, 0.6);
+        }
+    }
+    
+\definecolor{Blue1}{HTML}{4D4EDC}
+\newcommand{\MYhref}[3][Blue1]{\href{#2}{\color{#1}{#3}}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+%----------HEADING-----------------
+
+\begin{center}\textbf{\Large Фёдор Дмитриевич Головлёв}\end{center}
+\vspace{-12pt}
+\begin{center}
+Email: \MYhref{mailto:fdgolovlev@gmail.com}{fdgolovlev@gmail.com} \quad
+Telegram: \MYhref{https://t.me/Erruano}{Erruano} \quad
+GitHub: \MYhref{https://github.com/Eruano-prog}{Eruano-prog}
+\end{center}
+
+%-----------SUMMARY-----------------
+\vspace{-10pt}
+\section{О себе}
+\resumeSubHeadingListStart
+\justifying
+Студент, закончил второй курс в ИТМО на факультете информационных технологий и программирования, на программе "Разработка Программного обеспечения". Ищу работу в компании, которая даст возможность получить опыт комерческой раработки бэкенд приложений с возможностью совмещать её с учёбой
+\resumeSubHeadingListEnd
+
+% %-----------EXPERIENCE-----------------
+% \vspace{-5pt}
+% \section{Experience}
+% \justifying
+%   \resumeSubHeadingListStart
+%    \resumeExpSubheading
+%       {\href{https://disney.fandom.com/wiki/Wonderland}{Omozone --- leading e-commerce platform in Wonderland \ExternalLink}}{Remote / Tamarama, Wonderland}
+%       {Software Engineer at Object Storage Team}{Mar 2022 --- Present}
+%       {\skill{Go} \skill{S3} \skill{ScyllaDB} \skill{Ceph} \skill{Kubernetes} \skill{Nginx} \skill{Distributed Systems} \skill{Databases}}
+%       \resumeDesc{
+%       \begin{itemize}
+%           \item Implemented \textbf{fault-tolerant leader election} using \underline{Raft}'s implementation from \href{https://github.com/etcd-io/etcd/tree/main/raft}{\underline{etcd library} \ExternalLink} that helped to perform a wide range of operations like data synchronization that only one node in the system should perform
+%           \item Automated the process of checking and synchronization of access control lists for S3 storages by patching open-source rclone migration tool that sped up the bucket migration process from one cluster to another
+%           \item Designed and delivered the microservice that collects statistics on the latest user activity and limits traffic for users that load the gateways the most to avoid downtime for other users
+%       \end{itemize}}
+      
+%     \resumeExpSubheading
+%       {\href{https://disney.fandom.com/wiki/Wonderland}{Shchmoogle --- largest technology company in Wonderland \ExternalLink}}{Tamarama, Wonderland}
+%       {Software Engineer at Advertising Agency Accounts Team}{Jul 2021 --- Mar 2022}
+%       {\skill{Go} \skill{Python} \skill{Docker} \skill{asyncio} \skill{RabbitMQ} \skill{Celery} \skill{Databases}}
+%       \resumeDesc{
+%       \begin{itemize}
+%           \item Avoided unnecessary service re-deployments and reduced the time of metadata editing for the revenue calculators a few times by migrating all metadata from raw strings in the code to the real-time config
+%           \item Provided timely updates to access rights by automating the process of manual access rights granting and revoking by implementing \underline{Celery} task that periodically replicates changes from different sources to the local database
+%       \end{itemize}}
+    
+%     \resumeExpJointSubheading
+%       {}{}
+%       {Software Engineer Intern at Data Transfer Team}{Nov 2020 --- May 2021}
+%       {\skill{Go} \skill{C++} \skill{SQL} \skill{Databases}}
+%       \resumeDesc{
+%       \begin{itemize}
+%           \item Implemented client and resource management side functionality to set limits on RAM for end-to-end transfers that allowed to manage resources more flexibly, \textbf{saved 800 GB of RAM usage} in total, and helped to survive the data center outage
+%           \item Delivered a tooltip to help users set the optimal limits for new transfers by gathering data over the past months, parsing it and calculating the average RAM usage for all types of transfers
+%           \item Added new types of transfer sources and destinations by implementing a driver for the local \underline{MapReduce} system in \underline{Golang}
+%       \end{itemize}}
+%   \resumeSubHeadingListEnd
+
+%--------PROGRAMMING SKILLS------------
+\section{Навыки}
+ \resumeSubHeadingListStart
+ \begin{tabular}{ll}
+\textbf{Языки:} & \quad Java, C\#, C++/C, Python, SQL, Bash \\
+\textbf{Frameworks \& Tools:} & \quad Spring, PostgreSQL, Docker, Kafka, RabbitMQ, MongoDB, Gradle, Git \\
+\end{tabular}
+\resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------------
+\section{Образование}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+    {}{}
+      {{ Университет ИТМО }}{
+      \vspace{5pt}
+      \newline{\textbf{Факультет Информационных технологий и программирования:} }
+      \newline{\textbf{Программа:} \href{https://abit.itmo.ru/program/bachelor/software_engineering}{ Разработка Программного Обеспечения/Software Engeneering\ExternalLink}}
+      \newline{\textbf{Пройденные курсы:} Операционные системы, Алгоритмы и Структуры данных, Объектно-ориентированное проектирование, Технологии программирования на Java, Базы данных}
+      }
+    \resumeSubHeadingListEnd
+  
+%-----------PROJECTS-----------------
+\section{Проекты}
+  \resumeSubHeadingListStart
+      \resumeProjSubheading
+      {}{}{\href{https://github.com/Eruano-prog/JTechLab/tree/main/Microservices}{ Приложение с микросервисной работой на Java\ExternalLink}}{}
+      {\skill{Java} \skill{Spring} \skill{Kafka} \skill{PostgreSQL}}
+          \resumeDesc{
+          \begin{itemize}
+              \item Приложение соданно на \underline{REST API} используя \underline{Spring} и \underline{Kafka} в качестве брокера сообщений
+          \end{itemize}
+          }
+          
+    \resumeProjSubheading
+      {}{}{Основы ООП на C\#}{}
+      {\skill{C\#}}
+          \resumeDesc{
+          \begin{itemize}
+              \item Lab 1: Объектная модель симулятора фэнтезийного космического передвижения с модульными тестами
+              \item Lab 2: Конфигуратор ПК
+              \item Lab 3: Корпоративная системы распределения сообщений
+              \item Lab 4: Приложение для взаимодействия и управления файловой системой
+              \item Lab 5: Система банкомата
+          \end{itemize}
+          }
+  \resumeSubHeadingListEnd
+\end{document}
