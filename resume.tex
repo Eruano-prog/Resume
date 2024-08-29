@@ -184,44 +184,6 @@ GitHub: \MYhref{https://github.com/Eruano-prog}{Eruano-prog}
 Студент, закончил второй курс. Ищу работу в компании, которая даст возможность получить опыт комерческой раработки бэкенд приложений. Так же для меня важно, чтобы была возможность совмещать работу с учёбой в ВУЗе
 \resumeSubHeadingListEnd
 
-% %-----------EXPERIENCE-----------------
-% \vspace{-5pt}
-% \section{Experience}
-% \justifying
-%   \resumeSubHeadingListStart
-%    \resumeExpSubheading
-%       {\href{https://disney.fandom.com/wiki/Wonderland}{Omozone --- leading e-commerce platform in Wonderland \ExternalLink}}{Remote / Tamarama, Wonderland}
-%       {Software Engineer at Object Storage Team}{Mar 2022 --- Present}
-%       {\skill{Go} \skill{S3} \skill{ScyllaDB} \skill{Ceph} \skill{Kubernetes} \skill{Nginx} \skill{Distributed Systems} \skill{Databases}}
-%       \resumeDesc{
-%       \begin{itemize}
-%           \item Implemented \textbf{fault-tolerant leader election} using \underline{Raft}'s implementation from \href{https://github.com/etcd-io/etcd/tree/main/raft}{\underline{etcd library} \ExternalLink} that helped to perform a wide range of operations like data synchronization that only one node in the system should perform
-%           \item Automated the process of checking and synchronization of access control lists for S3 storages by patching open-source rclone migration tool that sped up the bucket migration process from one cluster to another
-%           \item Designed and delivered the microservice that collects statistics on the latest user activity and limits traffic for users that load the gateways the most to avoid downtime for other users
-%       \end{itemize}}
-      
-%     \resumeExpSubheading
-%       {\href{https://disney.fandom.com/wiki/Wonderland}{Shchmoogle --- largest technology company in Wonderland \ExternalLink}}{Tamarama, Wonderland}
-%       {Software Engineer at Advertising Agency Accounts Team}{Jul 2021 --- Mar 2022}
-%       {\skill{Go} \skill{Python} \skill{Docker} \skill{asyncio} \skill{RabbitMQ} \skill{Celery} \skill{Databases}}
-%       \resumeDesc{
-%       \begin{itemize}
-%           \item Avoided unnecessary service re-deployments and reduced the time of metadata editing for the revenue calculators a few times by migrating all metadata from raw strings in the code to the real-time config
-%           \item Provided timely updates to access rights by automating the process of manual access rights granting and revoking by implementing \underline{Celery} task that periodically replicates changes from different sources to the local database
-%       \end{itemize}}
-    
-%     \resumeExpJointSubheading
-%       {}{}
-%       {Software Engineer Intern at Data Transfer Team}{Nov 2020 --- May 2021}
-%       {\skill{Go} \skill{C++} \skill{SQL} \skill{Databases}}
-%       \resumeDesc{
-%       \begin{itemize}
-%           \item Implemented client and resource management side functionality to set limits on RAM for end-to-end transfers that allowed to manage resources more flexibly, \textbf{saved 800 GB of RAM usage} in total, and helped to survive the data center outage
-%           \item Delivered a tooltip to help users set the optimal limits for new transfers by gathering data over the past months, parsing it and calculating the average RAM usage for all types of transfers
-%           \item Added new types of transfer sources and destinations by implementing a driver for the local \underline{MapReduce} system in \underline{Golang}
-%       \end{itemize}}
-%   \resumeSubHeadingListEnd
-
 %--------PROGRAMMING SKILLS------------
 \section{Навыки}
  \resumeSubHeadingListStart
@@ -256,6 +218,17 @@ GitHub: \MYhref{https://github.com/Eruano-prog}{Eruano-prog}
           \begin{itemize}
               \item Приложение соданно на \underline{Микросервисной архитектуре} используя \underline{Spring} и \underline{Kafka} в качестве брокера сообщений
               \item Общение с сервисом проходит по \underline{REST API}
+          \end{itemize}
+          }
+          
+      \resumeProjSubheading
+      {}{}{\href{https://github.com/Eruano-prog/TaskSystem}{ Монолитное приложение на Java с JWT авторизацией\ExternalLink}}{}
+      {\skill{Java} \skill{Spring Web} \skill{Spring Data} \skill{Spring Security} \skill{JWT} \skill{REST API} \skill{Hibernate} \skill{PostgreSQL}}
+          \resumeDesc{
+          \begin{itemize}
+              \item Приложение аутентифицирует пользователя через \underline{JWT токен}
+              \item Методы получения данных поддерживает фильтрацию и пагинацию
+              \item Приложение полностью задукоментировано. Для этого используются \underline{JavaDoc} и \underline{Swagger}
           \end{itemize}
           }
           
