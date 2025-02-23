@@ -96,7 +96,7 @@
       \if\relax\detokenize{#3}\relax \else {\small#3} \\ \fi % Дополнительная информация (если не пусто)
       \if\relax\detokenize{#4}\relax \else \parbox[t]{0.8\textwidth}{\small#4} \\ \fi % Изученные темы (если не пусто)
     \end{tabular*}\vspace{-5pt}
-    \vspace{8pt}  
+    \vspace{12pt}  
 }
 
 \newcommand{\resumeExpSubheading}[5]{
@@ -222,13 +222,26 @@ GitHub: \MYhref{https://github.com/Eruano-prog}{Eruano-prog}
 %-----------PROJECTS-----------------
 \section{Проекты}
   \resumeSubHeadingListStart
+      \resumeProjSubheading
+      {}{}{Микросервисное приложение на Go}{}
+      {\skill{Go} \skill{gRPC} \skill{Kafka} \skill{REST API} \skill{WebSocket} \skill{PostgreSQL}}
+          \resumeDesc{
+          \begin{itemize}
+              \item Приложение представляет соббой API Gateway и набор микросервисов для интеграции с внешними сервисами.
+              \item Вызов команд между микросервисами осуществляется через gRPC.
+          \end{itemize}
+          }
+
         \resumeProjSubheading
-        {}{}{\href{https://github.com/Eruano-prog/Microservices-on-Java}{ Приложение с микросервисной архитектурой на Java\ExternalLink}}{}
-        {\skill{Java} \skill{Spring Web} \skill{Spring Data} \skill{Spring Security} \skill{Kafka} \skill{REST API} \skill{Hibernate} \skill{PostgreSQL}}
+        {}{}{Магазин монет на Go}{}
+        {\skill{Go} \skill{REST API} \skill{PostgreSQL} \skill{Docker} \skill{JWT} \skill{Unit testing} \skill{Integration testing}}
             \resumeDesc{
             \begin{itemize}
-                \item Приложение создано на \textbf{микросервисной} архитектуре, используя \textbf{Spring} и \textbf{Kafka} в качестве брокера сообщений.
-                \item Общение с сервисом проходит по \textbf{REST API}.
+                \item Предоставляет основные операции по покупке вещей за монеты
+                \item Обеспечивает целостность данных при RPS>1000 с средним временем ответа ~17ms.
+                \item Настроен docker-compose
+                \item Авторизация происходит через JWT токен
+                \item Покрытие тестами основных частей >60\%. Также реализовано интеграционное тестирование
             \end{itemize}
             }
 
