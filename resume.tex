@@ -107,7 +107,7 @@
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 \usepackage{changepage}
-\newcommand{\resumeDesc}[1]{\begin{adjustwidth}{5pt}{0pt}\vspace{-3pt}{#1}\end{adjustwidth}}
+\newcommand{\resumeDesc}[1]{\begin{adjustwidth}{5pt}{0pt}\vspace{-4pt}{#1}\end{adjustwidth}\vspace{-2pt}}
 
 \newcommand{\ExternalLink}{
     \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{
@@ -153,7 +153,7 @@ GitHub: \MYhref{https://github.com/Eruano-prog}{Eruano-prog}
 \vspace{-10pt}
 \section{О себе}
 \justifying
-Студент третьего курса ИТМО на направлении Разработка ПО/Software Engineering. Сейчас ищу возможность найти практическое применение своим знаниям в сфере разработки бэкенда на Go.
+Начинающий бэкенд-разработчик, активно изучающий Go и стремящийся развиваться в создании высоконагруженных систем. Хочу работать вместе с опытными разработчиками, чтобы вносить вклад в серьёзный проект и профессионально расти.
 
 %--------PROGRAMMING SKILLS------------
 \section{Навыки}
@@ -161,6 +161,23 @@ GitHub: \MYhref{https://github.com/Eruano-prog}{Eruano-prog}
 \textbf{Backend:} & \quad Go, PostgreSQL, Kafka, Redis, gRPC, YTsaurus, Grafana, Prometheus, REST API \\
 \textbf{Tools:} & \quad Docker, Terraform, Linux, Git, Python,  Bash \\
 \end{tabular}
+
+%-----------EXCPERIENCE---------------
+\section{Опыт}
+  \resumeSubHeadingListStart
+    \resumeSubheading{Yandex}{Май 2025 - н.в.}
+    {Стажёр Go Разработчик}
+    \resumeDesc{
+      Работал в команде высоконагруженного платёжного шлюза (10k+ RPS). Основная цель была: переход на новую архитектуру и повышение надежности.
+      \vspace{-5pt}
+      \begin{itemize}
+        \item Обеспечил возможность анализа и аудита платежных событий за любой период, создав отказоустойчивое долговременное хранилище в YTsaurus с автоматической посадкой данных из Kafka.
+        \item Повысил безопасность и соответствие требованиям к работе с персональными данными, разработав и внедрив библиотеку для токенизации ПД во всех сохроняемых событиях.
+        \item Автоматизировал процесс применения миграций БД, интегрировав его в CI/CD-пайплайн, что исключило ручные ошибки и сократило время развертывания на 15\%
+        \item Оптимизировал инфраструктуру платформы: реорганизовал систему алертинга, что сократило количество ложных срабатываний на 40\% и повысило доверие команды к системе мониторинга.
+      \end{itemize}
+    }
+  \resumeSubHeadingListEnd
 
 %-----------EDUCATION-----------------
 \section{Образование}
@@ -234,29 +251,5 @@ GitHub: \MYhref{https://github.com/Eruano-prog}{Eruano-prog}
           \item Общение с сервисом проходит по \textbf{REST API}.
       \end{itemize}
       }
-        
-    \resumeSubheading
-    {\href{https://github.com/Eruano-prog/TaskSystem}{ Монолитное приложение на Java с JWT авторизацией\ExternalLink}}{}
-    {\skill{Java} \skill{Spring Web} \skill{Spring Data} \skill{Spring Security} \skill{JWT} \skill{REST API} \skill{Hibernate} \skill{PostgreSQL}}
-      \resumeDesc{
-      \begin{itemize}
-          \item Приложение аутентифицирует пользователя через \textbf{JWT токен}.
-          \item Методы получения данных поддерживают фильтрацию и пагинацию.
-          \item Приложение полностью задокументировано. Для этого используются \textbf{JavaDoc} и \textbf{Swagger}.
-      \end{itemize}
-      }
-          
-    \resumeSubheading
-      {Основы ООП на C\#}{}
-      {\skill{C\#}}
-        \resumeDesc{
-        \begin{itemize}
-            \item Объектная модель симулятора фэнтезийного космического передвижения с модульными тестами.
-            \item Конфигуратор ПК.
-            \item Корпоративная система распределения сообщений.
-            \item Приложение для взаимодействия и управления файловой системой.
-            \item Система банкомата.
-        \end{itemize}
-        }
   \resumeSubHeadingListEnd
 \end{document}
