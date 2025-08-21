@@ -87,16 +87,15 @@
 \newcommand*{\mystrut}{\rule[-0.2\baselineskip]{0pt}{0.8\baselineskip}}
 \newcommand{\skill}[1]{\tframed[lightgray]{\mystrut#1}}
 
-
 \newcommand{\educationEntry}[5]{
+  \vspace{-10pt}
   \item
-    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & \textcolor{mygray}{\textit{\small #5}} \\ % Название программы и даты
-      \if\relax\detokenize{#2}\relax \else \textit{\small#2} \\ \fi % Название организации (если не пусто)
-      \if\relax\detokenize{#3}\relax \else {\small#3} \\ \fi % Дополнительная информация (если не пусто)
-      \if\relax\detokenize{#4}\relax \else \parbox[t]{0.8\textwidth}{\small#4} \\ \fi % Изученные темы (если не пусто)
-    \end{tabular*}\vspace{-5pt}
-    \vspace{12pt}  
+      \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} \\
+      \vspace{-4pt}\if\relax\detokenize{#2}\relax \else \textit{\textbf{#2}} & \textcolor{mygray}{\textit{\small #5}}  \\ \fi 
+      \if\relax\detokenize{#3}\relax \else {\small#3} \\ \fi 
+      \if\relax\detokenize{#4}\relax \else \parbox[t]{0.8\textwidth}{\small#4} \\ \fi 
+    \end{tabular*}
 }
 
 \newcommand{\resumeExpSubheading}[5]{
@@ -195,15 +194,21 @@ GitHub: \MYhref{https://github.com/Eruano-prog}{Eruano-prog}
 \textbf{Frameworks \& Tools:} & \quad PostgreSQL, gRPC, Docker, Kafka, MongoDB, Git \\
 \end{tabular}
 
+%-----------EXPERIENCE----------------
+% \section{Опыт}
+% \begin{tabular}{11}
+  
+% \end{tabular}
 %-----------EDUCATION-----------------
 \section{Образование}
   \resumeSubHeadingListStart
     \educationEntry
-      {Разработка Программного Обеспечения/Software Engineering} % Название программы
-      {Университет ИТМО} % Название организации
-      {Факультет информационных технологий и программирования} % Дополнительная информация
-      {}
-      {3-й курс} % Даты или информация о курсе
+      {}{Университет ИТМО}
+      {}{}{2022 - 2026 год}
+        \resumeDesc{
+          Факультет информационных технологий и программирования \\
+          Разработка Программного Обеспечения/Software Engineering \\
+        }
 
     \educationEntry
       {Язык Go} % Название программы
@@ -224,7 +229,7 @@ GitHub: \MYhref{https://github.com/Eruano-prog}{Eruano-prog}
 \section{Проекты}
   \resumeSubHeadingListStart
       \resumeProjSubheading
-      {}{}{Микросервисное приложение на Go}{}
+      {Text1}{Text2}{Микросервисное приложение на Go}{Text4}
       {\skill{Go} \skill{gRPC} \skill{Kafka} \skill{REST API} \skill{WebSocket} \skill{PostgreSQL}}
           \resumeDesc{
           \begin{itemize}
