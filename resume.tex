@@ -22,6 +22,8 @@
 \usepackage{enumitem}
 \usepackage[pdftex]{hyperref}
 \usepackage{fancyhdr}
+
+\usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english,russian]{babel}
 \usepackage{cmap}
@@ -74,7 +76,6 @@
 \definecolor{mygray}{gray}{0}
 \usepackage{fancybox}
 
-\usepackage{lmodern}
 \usepackage{tikz}
 
 % Style definition
@@ -86,13 +87,12 @@
 \newcommand*{\mystrut}{\rule[-0.2\baselineskip]{0pt}{0.8\baselineskip}}
 \newcommand{\skill}[1]{\tframed[lightgray]{\mystrut#1}}
 
-\newcommand{\resumeSubheading}[5]{
-  \vspace{-10pt}\item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \vspace{2pt} \textbf{#1} & \textcolor{mygray}{\small #2} \\
-      \textit{#3} & \textcolor{mygray}{\textit{\small #4}} \\
-      {\scriptsize#5}
-    \end{tabular*}\vspace{3pt}
+\newcommand{\resumeSubheading}[3]{
+  \item
+  \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & \textcolor{mygray}{\textit{\small #2}} \\
+    {#3} \\
+  \end{tabular*}
 }
 
 \newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
@@ -107,7 +107,7 @@
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 \usepackage{changepage}
-\newcommand{\resumeDesc}[1]{\begin{adjustwidth}{5pt}{0pt}\vspace{-2pt}{#1}\end{adjustwidth}}
+\newcommand{\resumeDesc}[1]{\begin{adjustwidth}{5pt}{0pt}\vspace{-3pt}{#1}\end{adjustwidth}}
 
 \newcommand{\ExternalLink}{
     \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{
@@ -166,99 +166,97 @@ GitHub: \MYhref{https://github.com/Eruano-prog}{Eruano-prog}
 \section{Образование}
   \resumeSubHeadingListStart
     \resumeSubheading
-      {Университет ИТМО}
-      {2022 - 2026 год}
+      {Университет ИТМО}{2022 - 2026}
       {Факультет информационных технологий и программирования}
-      {Разработка Программного Обеспечения/Software Engineering}
-      {}
+
+      \resumeDesc{
+        {Разработка Программного Обеспечения/Software Engineering} \\
+        {09.03.02 Информационные системы и технологии}
+        }
 
     \resumeSubheading
-      {Яндекс ШАД}
-      {Осень 2024}
-      {Курс по языку Go}
-      {}
-      {\skill{Go} \skill{Concurrency} \skill{Базы данных} \skill{Тестирование}}
-    
-    \resumeDesc{
-      \begin{itemize}
-        \item Темы курса: Горутины и каналы, продвинутое тестирование, concurrency with shared memory
-        \item Работа с базами данных, reflection, Go tooling
-      \end{itemize}
-    }
+      {Яндекс ШАД}{Осень 2024}
+      {Курс по основам Go}
+      
+      \resumeDesc{
+        \small{\skill{Go} \skill{Concurrency} \skill{REST API} \skill{PostgreSQL} \skill{Профилирование} \skill{Тестирование}}
+      }
 
     \resumeSubheading
-      {Yadro}
-      {февраль - апрель 2025 года}
+      {Yadro}{Весна 2025}
       {Курс по разработке микросервисных приложений на Go}
-      {}
-      {\skill{Go} \skill{gRPC} \skill{REST} \skill{Микросервисы} \skill{Тестирование}}
+      
+      \resumeDesc{
+        \small{\skill{Go} \skill{gRPC + Protobuf} \skill{PostgreSQL} \skill{OpenSearch} \skill{Docker} \skill{REST API}}
+      }
     
-    \resumeDesc{
-      \begin{itemize}
-        \item Темы курса: Rest, gRPC, распределение нагрузки, микросервисная архитектура
-        \item Продвинутые техники тестирования распределенных систем
-      \end{itemize}
-    }
+    \resumeSubheading
+      {Ozon Tech}{Лето 2025}
+      {Route256}
+
+      \resumeDesc{
+        \small{\skill{Go} \skill{Kafka} \skill{gRPC + Protobuf} \skill{PostgreSQL} \skill{Concurrency} \skill{Тестирование}}
+      }
   \resumeSubHeadingListEnd
   
 %-----------PROJECTS-----------------
 \section{Проекты}
   \resumeSubHeadingListStart
     \resumeSubheading
-    {}{}{Микросервисное приложение на Go}{}
+    {Микросервисное приложение на Go}{}
     {\skill{Go} \skill{gRPC} \skill{Kafka} \skill{REST API} \skill{WebSocket} \skill{PostgreSQL}}
-        \resumeDesc{
-        \begin{itemize}
-            \item Приложение представляет соббой API Gateway и набор микросервисов для интеграции с внешними сервисами.
-            \item Вызов команд между микросервисами осуществляется через gRPC.
-        \end{itemize}
-        }
+      \resumeDesc{
+      \begin{itemize}
+          \item Приложение представляет соббой API Gateway и набор микросервисов для интеграции с внешними сервисами.
+          \item Вызов команд между микросервисами осуществляется через gRPC.
+      \end{itemize}
+      }
 
     \resumeSubheading
-    {}{}{Магазин монет на Go}{}
+    {Магазин монет на Go}{}
     {\skill{Go} \skill{REST API} \skill{PostgreSQL} \skill{Docker} \skill{JWT} \skill{Unit testing} \skill{Integration testing}}
-        \resumeDesc{
-        \begin{itemize}
-            \item Предоставляет основные операции по покупке вещей за монеты
-            \item Обеспечивает целостность данных при RPS>1000 с средним временем ответа ~17ms.
-            \item Настроен docker-compose
-            \item Авторизация происходит через JWT токен
-            \item Покрытие тестами основных частей >60\%. Также реализовано интеграционное тестирование
-        \end{itemize}
-        }
+      \resumeDesc{
+      \begin{itemize}
+          \item Предоставляет основные операции по покупке вещей за монеты
+          \item Обеспечивает целостность данных при RPS>1000 с средним временем ответа ~17ms.
+          \item Настроен docker-compose
+          \item Авторизация происходит через JWT токен
+          \item Покрытие тестами основных частей >60\%. Также реализовано интеграционное тестирование
+      \end{itemize}
+      }
 
     \resumeSubheading
-    {}{}{\href{https://github.com/Eruano-prog/Microservices-on-Java}{ Приложение с микросервисной архитектурой на Java\ExternalLink}}{}
+    {\href{https://github.com/Eruano-prog/Microservices-on-Java}{ Приложение с микросервисной архитектурой на Java\ExternalLink}}{}
     {\skill{Java} \skill{Spring Web} \skill{Spring Data} \skill{Spring Security} \skill{Kafka} \skill{REST API} \skill{Hibernate} \skill{PostgreSQL}}
-        \resumeDesc{
-        \begin{itemize}
-            \item Приложение создано на \textbf{микросервисной} архитектуре, используя \textbf{Spring} и \textbf{Kafka} в качестве брокера сообщений.
-            \item Общение с сервисом проходит по \textbf{REST API}.
-        \end{itemize}
-        }
+      \resumeDesc{
+      \begin{itemize}
+          \item Приложение создано на \textbf{микросервисной} архитектуре, используя \textbf{Spring} и \textbf{Kafka} в качестве брокера сообщений.
+          \item Общение с сервисом проходит по \textbf{REST API}.
+      \end{itemize}
+      }
         
     \resumeSubheading
-    {}{}{\href{https://github.com/Eruano-prog/TaskSystem}{ Монолитное приложение на Java с JWT авторизацией\ExternalLink}}{}
+    {\href{https://github.com/Eruano-prog/TaskSystem}{ Монолитное приложение на Java с JWT авторизацией\ExternalLink}}{}
     {\skill{Java} \skill{Spring Web} \skill{Spring Data} \skill{Spring Security} \skill{JWT} \skill{REST API} \skill{Hibernate} \skill{PostgreSQL}}
-        \resumeDesc{
-        \begin{itemize}
-            \item Приложение аутентифицирует пользователя через \textbf{JWT токен}.
-            \item Методы получения данных поддерживают фильтрацию и пагинацию.
-            \item Приложение полностью задокументировано. Для этого используются \textbf{JavaDoc} и \textbf{Swagger}.
-        \end{itemize}
-        }
+      \resumeDesc{
+      \begin{itemize}
+          \item Приложение аутентифицирует пользователя через \textbf{JWT токен}.
+          \item Методы получения данных поддерживают фильтрацию и пагинацию.
+          \item Приложение полностью задокументировано. Для этого используются \textbf{JavaDoc} и \textbf{Swagger}.
+      \end{itemize}
+      }
           
     \resumeSubheading
-      {}{}{Основы ООП на C\#}{}
+      {Основы ООП на C\#}{}
       {\skill{C\#}}
-          \resumeDesc{
-          \begin{itemize}
-              \item Объектная модель симулятора фэнтезийного космического передвижения с модульными тестами.
-              \item Конфигуратор ПК.
-              \item Корпоративная система распределения сообщений.
-              \item Приложение для взаимодействия и управления файловой системой.
-              \item Система банкомата.
-          \end{itemize}
-          }
+        \resumeDesc{
+        \begin{itemize}
+            \item Объектная модель симулятора фэнтезийного космического передвижения с модульными тестами.
+            \item Конфигуратор ПК.
+            \item Корпоративная система распределения сообщений.
+            \item Приложение для взаимодействия и управления файловой системой.
+            \item Система банкомата.
+        \end{itemize}
+        }
   \resumeSubHeadingListEnd
 \end{document}
