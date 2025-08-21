@@ -22,7 +22,7 @@
 \usepackage{enumitem}
 \usepackage[pdftex]{hyperref}
 \usepackage{fancyhdr}
-\usepackage[utf8]{inputenc} % Исправлено: utf8 вместо utf8x
+\usepackage[utf8]{inputenc}
 \usepackage[english,russian]{babel}
 \usepackage{cmap}
 
@@ -41,8 +41,8 @@
 
 \urlstyle{same}
 
-\usepackage{xcolor} % http://ctan.org/pkg/xcolor
-\usepackage{hyperref} % http://ctan.org/pkg/hyperref
+\usepackage{xcolor}
+\usepackage{hyperref}
 \hypersetup{
   colorlinks=true,
   linkcolor=blue!50!red,
@@ -81,48 +81,16 @@
 \tikzset{rndblock/.style={rounded corners,rectangle,draw,outer sep=0pt}}
 
 % Command Definition
-% 1 optional to customize the aspect, 2 mandatory: text to be framed
 \newcommand{\tframed}[2][]{\tikz[baseline=(h.base)]\node[rndblock,#1] (h) {\color{black}{#2}};}
 
 \newcommand*{\mystrut}{\rule[-0.2\baselineskip]{0pt}{0.8\baselineskip}}
 \newcommand{\skill}[1]{\tframed[lightgray]{\mystrut#1}}
 
-\newcommand{\educationEntry}[5]{
-  \vspace{-10pt}
-  \item
-      \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-      \textbf{#1} \\
-      \vspace{-4pt}\if\relax\detokenize{#2}\relax \else \textit{\textbf{#2}} & \textcolor{mygray}{\textit{\small #5}}  \\ \fi 
-      \if\relax\detokenize{#3}\relax \else {\small#3} \\ \fi 
-      \if\relax\detokenize{#4}\relax \else \parbox[t]{0.8\textwidth}{\small#4} \\ \fi 
-    \end{tabular*}
-}
-
-\newcommand{\resumeExpSubheading}[5]{
-  \vspace{3pt}
-  \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \vspace{2pt} \textbf{#1}  & \textcolor{mygray}{\small #2} \\
-      \textit{#3} & \textcolor{mygray}{\textit{\small #4}} \\
-      {\scriptsize#5}
-    \end{tabular*}\vspace{3pt}
-}
-
-\newcommand{\resumeExpJointSubheading}[5]{
-  \vspace{-14pt}
-  \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \vspace{2pt} \textbf{#1}  & \textcolor{mygray}{\small #2} \\
-      \textit{#3} & \textcolor{mygray}{\textit{\small #4}} \\
-      {\scriptsize#5}
-    \end{tabular*}\vspace{3pt}
-}
-
-\newcommand{\resumeProjSubheading}[5]{
+\newcommand{\resumeSubheading}[5]{
   \vspace{-10pt}\item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \vspace{2pt} \textbf{#1}  & \textcolor{mygray}{\small #2} \\
-      \textbf{#3} & \textcolor{mygray}{\textit{\small #4}} \\
+      \vspace{2pt} \textbf{#1} & \textcolor{mygray}{\small #2} \\
+      \textit{#3} & \textcolor{mygray}{\textit{\small #4}} \\
       {\scriptsize#5}
     \end{tabular*}\vspace{3pt}
 }
@@ -194,85 +162,93 @@ GitHub: \MYhref{https://github.com/Eruano-prog}{Eruano-prog}
 \textbf{Frameworks \& Tools:} & \quad PostgreSQL, gRPC, Docker, Kafka, MongoDB, Git \\
 \end{tabular}
 
-%-----------EXPERIENCE----------------
-% \section{Опыт}
-% \begin{tabular}{11}
-  
-% \end{tabular}
 %-----------EDUCATION-----------------
 \section{Образование}
   \resumeSubHeadingListStart
-    \educationEntry
-      {}{Университет ИТМО}
-      {}{}{2022 - 2026 год}
-        \resumeDesc{
-          Факультет информационных технологий и программирования \\
-          Разработка Программного Обеспечения/Software Engineering \\
-        }
-
-    \educationEntry
-      {Язык Go} % Название программы
-      {Яндекс ШАД} % Название организации
-      {} % Дополнительная информация (пусто)
-      {Темы курса: Горутины и каналы, Продвинутое тестирование, Concurrency with shared memory, Работа с базами данных, Reflection, Go tooling} % Изученные темы
-      {Осень 2024} % Даты или информация о курсе
-
-    \educationEntry
-      {Разработка микросервисных приложений на Go}
-      {Yadro}
+    \resumeSubheading
+      {Университет ИТМО}
+      {2022 - 2026 год}
+      {Факультет информационных технологий и программирования}
+      {Разработка Программного Обеспечения/Software Engineering}
       {}
-      {Темы курса: Rest, gRPC, распределение нагрузки, микросервисы, тестирование}
+
+    \resumeSubheading
+      {Яндекс ШАД}
+      {Осень 2024}
+      {Курс по языку Go}
+      {}
+      {\skill{Go} \skill{Concurrency} \skill{Базы данных} \skill{Тестирование}}
+    
+    \resumeDesc{
+      \begin{itemize}
+        \item Темы курса: Горутины и каналы, продвинутое тестирование, concurrency with shared memory
+        \item Работа с базами данных, reflection, Go tooling
+      \end{itemize}
+    }
+
+    \resumeSubheading
+      {Yadro}
       {февраль - апрель 2025 года}
+      {Курс по разработке микросервисных приложений на Go}
+      {}
+      {\skill{Go} \skill{gRPC} \skill{REST} \skill{Микросервисы} \skill{Тестирование}}
+    
+    \resumeDesc{
+      \begin{itemize}
+        \item Темы курса: Rest, gRPC, распределение нагрузки, микросервисная архитектура
+        \item Продвинутые техники тестирования распределенных систем
+      \end{itemize}
+    }
   \resumeSubHeadingListEnd
   
 %-----------PROJECTS-----------------
 \section{Проекты}
   \resumeSubHeadingListStart
-      \resumeProjSubheading
-      {Text1}{Text2}{Микросервисное приложение на Go}{Text4}
-      {\skill{Go} \skill{gRPC} \skill{Kafka} \skill{REST API} \skill{WebSocket} \skill{PostgreSQL}}
-          \resumeDesc{
-          \begin{itemize}
-              \item Приложение представляет соббой API Gateway и набор микросервисов для интеграции с внешними сервисами.
-              \item Вызов команд между микросервисами осуществляется через gRPC.
-          \end{itemize}
-          }
+    \resumeSubheading
+    {}{}{Микросервисное приложение на Go}{}
+    {\skill{Go} \skill{gRPC} \skill{Kafka} \skill{REST API} \skill{WebSocket} \skill{PostgreSQL}}
+        \resumeDesc{
+        \begin{itemize}
+            \item Приложение представляет соббой API Gateway и набор микросервисов для интеграции с внешними сервисами.
+            \item Вызов команд между микросервисами осуществляется через gRPC.
+        \end{itemize}
+        }
 
-        \resumeProjSubheading
-        {}{}{Магазин монет на Go}{}
-        {\skill{Go} \skill{REST API} \skill{PostgreSQL} \skill{Docker} \skill{JWT} \skill{Unit testing} \skill{Integration testing}}
-            \resumeDesc{
-            \begin{itemize}
-                \item Предоставляет основные операции по покупке вещей за монеты
-                \item Обеспечивает целостность данных при RPS>1000 с средним временем ответа ~17ms.
-                \item Настроен docker-compose
-                \item Авторизация происходит через JWT токен
-                \item Покрытие тестами основных частей >60\%. Также реализовано интеграционное тестирование
-            \end{itemize}
-            }
+    \resumeSubheading
+    {}{}{Магазин монет на Go}{}
+    {\skill{Go} \skill{REST API} \skill{PostgreSQL} \skill{Docker} \skill{JWT} \skill{Unit testing} \skill{Integration testing}}
+        \resumeDesc{
+        \begin{itemize}
+            \item Предоставляет основные операции по покупке вещей за монеты
+            \item Обеспечивает целостность данных при RPS>1000 с средним временем ответа ~17ms.
+            \item Настроен docker-compose
+            \item Авторизация происходит через JWT токен
+            \item Покрытие тестами основных частей >60\%. Также реализовано интеграционное тестирование
+        \end{itemize}
+        }
 
-      \resumeProjSubheading
-      {}{}{\href{https://github.com/Eruano-prog/Microservices-on-Java}{ Приложение с микросервисной архитектурой на Java\ExternalLink}}{}
-      {\skill{Java} \skill{Spring Web} \skill{Spring Data} \skill{Spring Security} \skill{Kafka} \skill{REST API} \skill{Hibernate} \skill{PostgreSQL}}
-          \resumeDesc{
-          \begin{itemize}
-              \item Приложение создано на \textbf{микросервисной} архитектуре, используя \textbf{Spring} и \textbf{Kafka} в качестве брокера сообщений.
-              \item Общение с сервисом проходит по \textbf{REST API}.
-          \end{itemize}
-          }
+    \resumeSubheading
+    {}{}{\href{https://github.com/Eruano-prog/Microservices-on-Java}{ Приложение с микросервисной архитектурой на Java\ExternalLink}}{}
+    {\skill{Java} \skill{Spring Web} \skill{Spring Data} \skill{Spring Security} \skill{Kafka} \skill{REST API} \skill{Hibernate} \skill{PostgreSQL}}
+        \resumeDesc{
+        \begin{itemize}
+            \item Приложение создано на \textbf{микросервисной} архитектуре, используя \textbf{Spring} и \textbf{Kafka} в качестве брокера сообщений.
+            \item Общение с сервисом проходит по \textbf{REST API}.
+        \end{itemize}
+        }
+        
+    \resumeSubheading
+    {}{}{\href{https://github.com/Eruano-prog/TaskSystem}{ Монолитное приложение на Java с JWT авторизацией\ExternalLink}}{}
+    {\skill{Java} \skill{Spring Web} \skill{Spring Data} \skill{Spring Security} \skill{JWT} \skill{REST API} \skill{Hibernate} \skill{PostgreSQL}}
+        \resumeDesc{
+        \begin{itemize}
+            \item Приложение аутентифицирует пользователя через \textbf{JWT токен}.
+            \item Методы получения данных поддерживают фильтрацию и пагинацию.
+            \item Приложение полностью задокументировано. Для этого используются \textbf{JavaDoc} и \textbf{Swagger}.
+        \end{itemize}
+        }
           
-      \resumeProjSubheading
-      {}{}{\href{https://github.com/Eruano-prog/TaskSystem}{ Монолитное приложение на Java с JWT авторизацией\ExternalLink}}{}
-      {\skill{Java} \skill{Spring Web} \skill{Spring Data} \skill{Spring Security} \skill{JWT} \skill{REST API} \skill{Hibernate} \skill{PostgreSQL}}
-          \resumeDesc{
-          \begin{itemize}
-              \item Приложение аутентифицирует пользователя через \textbf{JWT токен}.
-              \item Методы получения данных поддерживают фильтрацию и пагинацию.
-              \item Приложение полностью задокументировано. Для этого используются \textbf{JavaDoc} и \textbf{Swagger}.
-          \end{itemize}
-          }
-          
-    \resumeProjSubheading
+    \resumeSubheading
       {}{}{Основы ООП на C\#}{}
       {\skill{C\#}}
           \resumeDesc{
